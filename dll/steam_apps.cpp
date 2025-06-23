@@ -123,7 +123,7 @@ bool Steam_Apps::BIsDlcInstalled( AppId_t appID )
     PRINT_DEBUG("%u", appID);
     std::lock_guard<std::recursive_mutex> lock(global_mutex);
     if (appID == 0) return false; // steam returns false (also appid 1958220 expects false otherwise it hangs in loading screen)
-    if (appID == UINT32_MAX) return false; // steam returns false
+    if (appID == UINT32_MAX) return settings->getUINT32MAX(); // steam returns false
     
     // Age of Empires 2: Definitive Edition expects the app itself to be an owned DLC.
     // otherwise it will only load the "Return of Rome" game mode, also most options are disabled

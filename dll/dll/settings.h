@@ -211,6 +211,7 @@ private:
     uint16 port{}; // Listen port, default 47584
 
     bool unlockAllDLCs = true;
+    bool unlockUINT32MAXCheck = false;
     std::vector<struct DLC_entry> DLCs{};
     
     //installed app ids, Steam_Apps::BIsAppInstalled()
@@ -389,6 +390,8 @@ public:
 
     //DLC stuff
     void unlockAllDLC(bool value);
+    void setUINT32MAX(bool value);
+    bool getUINT32MAX();
     void addDLC(AppId_t appID, std::string name, bool available);
     unsigned int DLCCount() const;
     bool hasDLC(AppId_t appID);

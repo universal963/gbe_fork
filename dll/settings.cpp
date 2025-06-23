@@ -261,6 +261,16 @@ void Settings::unlockAllDLC(bool value)
     this->unlockAllDLCs = value;
 }
 
+void Settings::setUINT32MAX(bool value)
+{
+    this->unlockUINT32MAXCheck = value;
+}
+
+bool Settings::getUINT32MAX()
+{
+    return unlockUINT32MAXCheck;
+}
+
 void Settings::addDLC(AppId_t appID, std::string name, bool available)
 {
     auto f = std::find_if(DLCs.begin(), DLCs.end(), [&appID](DLC_entry const& item) { return item.appID == appID; });

@@ -740,6 +740,16 @@ static void parse_dlc(class Settings *settings_client, class Settings *settings_
         settings_server->unlockAllDLC(false);
     }
 
+    // some rare games like appid 636570 may depend on appid 0xFFFFFFFF as a valid DLC
+    // to unlock, thus adding an option to support this behavior without breaking
+    // major games
+    bool unlock_uint32max = ini.GetBoolValue("app::dlcs", "unlock_uint32max", false);
+    if (unlock_uint32max) {
+        PRINT_DEBUG("NOTE: unlocking appid 4294967295 as a valid DLC!");
+    }
+    settings_client->setUINT32MAX(unlock_uint32max);
+    settings_server->setUINT32MAX(unlock_uint32max);
+
     std::list<CSimpleIniA::Entry> dlcs_keys{};
     if (!ini.GetAllKeys("app::dlcs", dlcs_keys) || dlcs_keys.empty()) return;
 
