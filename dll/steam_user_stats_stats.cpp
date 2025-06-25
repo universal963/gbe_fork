@@ -496,13 +496,15 @@ bool Steam_User_Stats::GetUserStat( CSteamID steamIDUser, const char *pchName, i
 
     if (!pchName) return false;
 
+#if 0
     if (steamIDUser == settings->get_local_steam_id()) {
         GetStat(pchName, pData);
     } else {
         *pData = 0;
     }
+#endif
 
-    return true;
+    return GetStat(pchName, pData);
 }
 
 bool Steam_User_Stats::GetUserStat( CSteamID steamIDUser, const char *pchName, float *pData )
@@ -512,13 +514,15 @@ bool Steam_User_Stats::GetUserStat( CSteamID steamIDUser, const char *pchName, f
 
     if (!pchName) return false;
 
+#if 0
     if (steamIDUser == settings->get_local_steam_id()) {
         GetStat(pchName, pData);
     } else {
         *pData = 0;
     }
+#endif
 
-    return true;
+    return GetStat(pchName, pData);
 }
 
 
