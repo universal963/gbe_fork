@@ -521,6 +521,9 @@ bool Steam_User_Stats::GetUserStat( CSteamID steamIDUser, const char *pchName, i
         return GetStat(pchName, pData);
     }
 
+    if (pData)
+        *pData = 0;
+
     std::string stat_name = common_helpers::to_lower(pchName);
     const auto &stats_config = settings->getStats();
     auto stats_data = stats_config.find(stat_name);
@@ -552,6 +555,9 @@ bool Steam_User_Stats::GetUserStat( CSteamID steamIDUser, const char *pchName, f
     if (steamIDUser == settings->get_local_steam_id()) {
         return GetStat(pchName, pData);
     }
+
+    if (pData)
+        *pData = 0.0f;
 
     std::string stat_name = common_helpers::to_lower(pchName);
     const auto &stats_config = settings->getStats();
