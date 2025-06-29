@@ -146,7 +146,7 @@ private:
     InternalSetResult<std::pair<StatInfo::Stat_Type, float>> update_avg_rate_stat_internal( const char *pchName, float flCountThisSession, double dSessionLength );
     InternalSetResult<bool> set_achievement_internal( const char *pchName );
     InternalSetResult<bool> clear_achievement_internal( const char *pchName );
-    SteamAPICall_t trigger_user_stats_received(CSteamID steam_id_user, SteamAPICall_t api_id = k_uAPICallInvalid, bool success = true)
+    SteamAPICall_t trigger_user_stats_received(CSteamID steam_id_user, SteamAPICall_t api_id = k_uAPICallInvalid, bool success = true);
 
     void send_updated_stats();
     void load_achievements_icons();
