@@ -931,7 +931,7 @@ void Steam_User_Stats::process_pending_user_stats_requests(Common_Message *msg)
         const auto &stats_config = settings->getStats();
         for (const auto &sc : stats_config) {
             std::string stats_name = sc.first;
-            Stat_Type stats_type = sc.second.type;
+            StatInfo::Stat_Type stats_type = sc.second.type;
             if (stats_type == StatInfo::STAT_TYPE_INT) {
                 int32 stats_value = 0;
                 GetStat(stats_name.c_str(), &stats_value);
