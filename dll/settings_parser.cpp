@@ -1812,6 +1812,9 @@ static void parse_simple_features(class Settings *settings_client, class Setting
 
     settings_client->use_32bit_inventory_item_ids = ini.GetBoolValue("main::misc", "use_32bit_inventory_item_ids", settings_client->use_32bit_inventory_item_ids);
     settings_server->use_32bit_inventory_item_ids = ini.GetBoolValue("main::misc", "use_32bit_inventory_item_ids", settings_server->use_32bit_inventory_item_ids);
+
+    settings_client->apply_filter_when_key_not_found = ini.GetBoolValue("main::misc", "apply_filter_when_key_not_found", settings_client->apply_filter_when_key_not_found);
+    settings_server->apply_filter_when_key_not_found = ini.GetBoolValue("main::misc", "apply_filter_when_key_not_found", settings_server->apply_filter_when_key_not_found);
 }
 
 // [main::stats]

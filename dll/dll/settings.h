@@ -417,6 +417,9 @@ public:
     // only use 32 bits for inventory item ids
     bool use_32bit_inventory_item_ids = false;
 
+    // apply filter if key not found in Steam_Matchmaking
+    bool apply_filter_when_key_not_found = true;
+
 
 #ifdef LOBBY_CONNECT
     static constexpr const bool is_lobby_connect = true;

@@ -1457,9 +1457,11 @@ void Steam_Matchmaking::RunCallbacks()
                     }
                 } else {
                     PRINT_DEBUG("Compare Key not in lobby");
-                    if (f.eComparisonType == k_ELobbyComparisonEqual) {
-                        //If the key is not in the lobby do we take it into account?
-                        use = false;
+                    if (settings->apply_filter_when_key_not_found) {
+                        if (f.eComparisonType == k_ELobbyComparisonEqual) {
+                            //If the key is not in the lobby do we take it into account?
+                            use = false;
+                        }
                     }
                 }
             }
